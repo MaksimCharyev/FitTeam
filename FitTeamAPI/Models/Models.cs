@@ -90,7 +90,7 @@ namespace FitTeamAPI.Models
             public int FromID { get; set; }
 
         }
-    }
+    }//Нужно проверка Дианы
     namespace Role
     {
         public class Role
