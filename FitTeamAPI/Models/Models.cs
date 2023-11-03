@@ -90,7 +90,7 @@ namespace FitTeamAPI.Models
             public int FromID { get; set; }
 
         }
-    }//Нужно проверка Дианы
+    }
     namespace Role
     {
         public class Role
@@ -105,26 +105,53 @@ namespace FitTeamAPI.Models
         {
             [Key]
             public int REID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public Event.Event? Event { get; set; }
+            public int EventID { get; set; }
         }
         public class Role_has_perm
         {
             public int RPID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public Permission.Permission? Permission { get; set; }
+            public int PermissionID { get; set; }
         }
         public class Role_has_norm
         {
             public int RNID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public Norm.Norm? Norm { get; set; }
+            public int NormID { get; set; }
+
         }
         public class Role_has_doc
         {
             public int RDID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public Document.Document? Document { get; set; }
+            public int DocumentID { get; set; }
         }
         public class Role_has_test
         {
             public int RTID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public TestNQuestions.Test? Test {get; set;}
+            public int TestID { get; set; }
+
+
         }
         public class Role_has_course
         {
             public int RCoID { get; set; }
+            public Role? Role { get; set; }
+            public int RoleID { get; set; }
+            public Course.Course? Course { get; set; }
+            public int CourseID { get; set; }
         }
     }
     namespace Permission
@@ -151,26 +178,58 @@ namespace FitTeamAPI.Models
         {
             [Key]
             public int SEID { get; set; }
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisionID { get; set; }
+            public Event.Event? Event { get; set; }
+            public int EventID { get; set; }
         }
         public class Subdivision_has_doc
         {
+            [Key]
             public int SDID { get; set; }
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisionID { get; set; }
+            public Document.Document? Document { get; set; }
+            public int DocumentID { get; set; }
         }
         public class Subdivision_has_test
         {
+            [Key]
             public int STID { get; set; }
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisionID { get; set; }
+            public TestNQuestions.Test? Test { get; set; }
+            public int TestID { get; set; }
         }
         public class Subdivision_has_course
         {
+            [Key]
             public int SCoID { get; set;}
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisionID { get; set; }
+            public Course.Course? Course { get; set; }
+            public int CourseID { get; set; }
+
         }
         public class Subdivision_has_norm
         {
+            [Key]
             public int SNID { get; set; }
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisonID { get; set; }
+            public Norm.Norm? Norm { get; set; }
+            public int NormID { get; set; }
         }
         public class Subdivision_has_plan
         {
+            [Key]
             public int SPID { get; set; }
+            public Subdivision? Subdivision { get; set; }
+            public int SubdivisionID { get; set; }
+            public SalePlan.SalePlan? SalePlan { get; set; }
+            public int SalePlanID { get; set; }
+            public string Data { get; set; }
+            public bool IsOld { get; set; }
         }
        
     }
@@ -181,6 +240,7 @@ namespace FitTeamAPI.Models
             [Key]
             public int DocumentID { get; set; }
             public string DocumentName { get; set; }
+            public string DocumentPath { get; set; }
         }
         
     }
@@ -199,6 +259,11 @@ namespace FitTeamAPI.Models
         {
             [Key]
             public int TQID { get; set; }
+            public Test? Test { get; set; }
+            public int TestID { get; set; }
+            public Question? Question { get; set; }
+            public int QuestionID { get; set; }
+            public int Weight { get; set; }
         }
         public class Question
         {
@@ -219,6 +284,7 @@ namespace FitTeamAPI.Models
             public string EventName { get; set; }
             public string EventDescription { get; set; }
             public DateTime EventTime { get; set; }
+            public Worker.Worker? Host { get; set; }
         }
        
     }
@@ -230,6 +296,7 @@ namespace FitTeamAPI.Models
             public int SalePlanID { get; set; }
             public string SalePlanName { get; set; }
             public string URL { get; set; }
+
         }
     }
     namespace Comment
@@ -265,4 +332,5 @@ namespace FitTeamAPI.Models
             public JsonDocument JsonCourse { get; set; }
         }
     }
+    //Нужна полная проверка от Дианы
 }
