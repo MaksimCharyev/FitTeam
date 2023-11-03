@@ -20,38 +20,75 @@ namespace FitTeamAPI.Models
             public int WDID;
             public DateTime KnowledgeTime { get; set; }
             public Worker? Worker { get; set; }
-            public Document? Document { get; set; }
+            public int WorkerID { get; set; }
+            public Document.Document? Document { get; set; }
+            public int DocumentID { get; set; }
         }
         public class Worker_does_norm
         {
             [Key]
             public int WNID { get; set; }
+            public Worker? Worker { get; set; }
+            public int WorkerID { get; set; }
+            public Norm.Norm? Norm { get; set; }
+            public int NormID { get; set; }
+            public DateTime NormTime { get; set; }
+            public string Mark { get; set; }
+            public Worker? Host { get; set; }
+            public int HostID { get; set; }
 
         }
         public class Worker_has_role
         {
             [Key]
             public int WRID { get; set; }
+            public Worker? Worker { get; set; }
+            public Role.Role? Role { get; set; }
         }
         public class Worker_on_event
         {
             [Key]
             public int WEID { get; set; }
+            public Worker? Worker { get; set; }
+            public int WorkerID { get; set; }
+            public Event.Event? Event { get; set; }
+            public int EventID { get; set; }
         }
         public class Worker_complete_course
         {
             [Key]
             public int WCoID { get; set; }
+            public Worker? Worker { get; set; }
+            public int WorkerID { get; set; }
+            public Course.Course? Course { get; set; }
+            public int CourseID { get; set; }
+            public DateTime DoneTime { get; set; }
+            public string Mark { get; set; }
+
         }
         public class Worker_did_test
         {
             [Key]
             public int WTID { get; set; }
+            public Worker? Worker { get; set; }
+            public int WorkerID { get; set; }
+            public TestNQuestions.Test? Test { get; set; }
+            public int TestID { get; set; }
+            public DateTime Begin { get; set; }
+            public DateTime End { get; set; }
+            public string Mark { get; set; }
         }
         public class Worker_has_comment
         {
             [Key]
             public int WCID { get; set; }
+            public Worker? To { get; set; }
+            public int ToID { get; set; }
+            public Comment.Comment? Comment { get; set; }
+            public int CommentID { get; set; }
+            public Worker? From { get; set; }
+            public int FromID { get; set; }
+
         }
     }
     namespace Role
@@ -68,6 +105,10 @@ namespace FitTeamAPI.Models
         {
             [Key]
             public int REID { get; set; }
+        }
+        public class Role_has_perm
+        {
+            public int RPID { get; set; }
         }
         public class Role_has_norm
         {
@@ -110,6 +151,26 @@ namespace FitTeamAPI.Models
         {
             [Key]
             public int SEID { get; set; }
+        }
+        public class Subdivision_has_doc
+        {
+            public int SDID { get; set; }
+        }
+        public class Subdivision_has_test
+        {
+            public int STID { get; set; }
+        }
+        public class Subdivision_has_course
+        {
+            public int SCoID { get; set;}
+        }
+        public class Subdivision_has_norm
+        {
+            public int SNID { get; set; }
+        }
+        public class Subdivision_has_plan
+        {
+            public int SPID { get; set; }
         }
        
     }
