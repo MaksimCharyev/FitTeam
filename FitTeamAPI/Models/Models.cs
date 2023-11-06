@@ -17,7 +17,7 @@ namespace FitTeamAPI.Models
         public class Worker_know_doc
         {
             [Key]
-            public int WDID;
+            public int WDID { get; set; }
             public DateTime KnowledgeTime { get; set; }
             public Worker? Worker { get; set; }
             public int WorkerID { get; set; }
@@ -112,6 +112,7 @@ namespace FitTeamAPI.Models
         }
         public class Role_has_perm
         {
+            [Key]
             public int RPID { get; set; }
             public Role? Role { get; set; }
             public int RoleID { get; set; }
@@ -120,6 +121,7 @@ namespace FitTeamAPI.Models
         }
         public class Role_has_norm
         {
+            [Key]
             public int RNID { get; set; }
             public Role? Role { get; set; }
             public int RoleID { get; set; }
@@ -129,6 +131,7 @@ namespace FitTeamAPI.Models
         }
         public class Role_has_doc
         {
+            [Key]
             public int RDID { get; set; }
             public Role? Role { get; set; }
             public int RoleID { get; set; }
@@ -137,6 +140,7 @@ namespace FitTeamAPI.Models
         }
         public class Role_has_test
         {
+            [Key]
             public int RTID { get; set; }
             public Role? Role { get; set; }
             public int RoleID { get; set; }
@@ -147,6 +151,7 @@ namespace FitTeamAPI.Models
         }
         public class Role_has_course
         {
+            [Key]
             public int RCoID { get; set; }
             public Role? Role { get; set; }
             public int RoleID { get; set; }

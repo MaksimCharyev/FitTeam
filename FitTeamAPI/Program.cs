@@ -1,3 +1,6 @@
+using FitTeamAPI.Context;
+using Microsoft.EntityFrameworkCore;
+
 namespace FitTeamAPI
 {
     public class Program
@@ -8,6 +11,12 @@ namespace FitTeamAPI
 
             // Add services to the container.
 
+            //
+            builder.Services.AddDbContext<DatabaseContext>(options =>
+            {
+                var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+                options.UseNpgsql(connectionString);
+            });
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
