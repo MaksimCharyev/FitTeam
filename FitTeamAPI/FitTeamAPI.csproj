@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\Document\" />
-    <Folder Include="Controllers\Activity\" />
   </ItemGroup>
 
 </Project>
