@@ -48,7 +48,7 @@ namespace FitTeamAPI.Controllers.activity
             return Ok(Event);
         }
         [HttpGet]
-        public async Task<ActionResult<List<Event>>> GetWorkers()
+        public async Task<ActionResult<List<Event>>> GetEvents()
         {
             var Events = await _databaseContext.events.ToListAsync();
             return Ok(Events);
