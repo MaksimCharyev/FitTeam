@@ -1,4 +1,4 @@
-﻿namespace FitTeamAPI.DTO.Events
+﻿namespace FitTeamAPI.DTO.Activity
 {
     public class SalePlanDTO
     {
