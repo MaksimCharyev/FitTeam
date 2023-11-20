@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using FitTeamAPI.Models.Worker;
 using FitTeamAPI.Context;
-using FitTeamAPI.DTO.Events;
 using Microsoft.EntityFrameworkCore;
+using FitTeamAPI.DTO.Activity.Events;
 
 namespace FitTeamAPI.Controllers.Activity
 {

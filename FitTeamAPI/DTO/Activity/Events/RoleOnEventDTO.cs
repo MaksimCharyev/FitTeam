@@ -1,7 +1,7 @@
 ﻿using FitTeamAPI.Models.Event;
 using FitTeamAPI.Models.Role;
 
-namespace FitTeamAPI.DTO.Events
+namespace FitTeamAPI.DTO.Activity.Events
 {
     public class RoleOnEventDTO
     {

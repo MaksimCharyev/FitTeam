@@ -39,6 +39,10 @@ namespace FitTeamAPI.Controllers.Administration
         public async Task<ActionResult<Worker>>GetWorkerByID([FromRoute] int id)
         {
             var worker = await _databaseContext.workers.FirstOrDefaultAsync(x=> x.UUID == id);
+            if(worker == null)
+            {
+                return NotFound("Worker not found!");
+            }
             return Ok(worker);
         }
         [HttpGet]

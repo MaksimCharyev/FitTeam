@@ -2,7 +2,6 @@
 using FitTeamAPI.DTO.Activity;
 using FitTeamAPI.Models.Comment;
 using FitTeamAPI.Models.Worker;
-using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

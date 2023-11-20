@@ -1,6 +1,6 @@
 ﻿using FitTeamAPI.Models.Worker;
 
-namespace FitTeamAPI.DTO.Events
+namespace FitTeamAPI.DTO.Activity.Events
 {
     public class CreateEventDTO
     {

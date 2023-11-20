@@ -1,9 +1,9 @@
 ﻿using FitTeamAPI.Context;
-using FitTeamAPI.DTO.Events;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using FitTeamAPI.Models.Subdivision;
 using Microsoft.EntityFrameworkCore;
+using FitTeamAPI.DTO.Activity.Events;
 
 namespace FitTeamAPI.Controllers.Activity
 {
