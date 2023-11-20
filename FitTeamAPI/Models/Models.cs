@@ -196,6 +196,7 @@ namespace FitTeamAPI.Models
             public int SubdivisionID { get; set; }
             public Document.Document? Document { get; set; }
             public int DocumentID { get; set; }
+            
         }
         public class Subdivision_has_test
         {

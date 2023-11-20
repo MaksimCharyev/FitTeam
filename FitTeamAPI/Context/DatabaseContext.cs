@@ -49,7 +49,7 @@ namespace FitTeamAPI.Context
         public DbSet<Course> courses { get; set; }
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
               
         }
     }
