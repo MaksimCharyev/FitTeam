@@ -15,7 +15,7 @@ namespace FitTeamAPI.Controllers.Activity
         {
             _databaseContext = databaseContext;
         }
-        [HttpPost]
+        [HttpPost]//создание нового экземпляра
         public async Task<IActionResult> CreateWorker_does_norm([FromBody] CreateWorker_does_normDTO worker_does_normDTO)
         {
             var worker_does_norm = new Worker_does_norm()
@@ -33,14 +33,14 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Worker_does_norm has been added");
         }
-        [HttpGet]
+        [HttpGet]//получение всех Worker_does_norm по WorkerID, т.е. получение всех нормативов конкретного работника
         [Route("Workerid")]
         public async Task<ActionResult<List<Worker_does_norm>>> GetNormsforWorkerByID([FromRoute] int Workerid)
         {
             var workers_norms = await _databaseContext.workers_does_norms.Where(x => x.WorkerID == Workerid).ToListAsync();
             return Ok(workers_norms);
         }
-        [HttpPatch]
+        [HttpPatch]//обновление по id
         [Route("id")]
         public async Task<IActionResult> UpdateNorm([FromRoute] int id, [FromBody] CreateWorker_does_normDTO worker_does_normDTO)
         {
@@ -60,7 +60,7 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Worker_does_norms has been updated");
         }
-        [HttpDelete]
+        [HttpDelete]//удаление по id
         [Route("id")]
         public async Task<IActionResult> DeleteWorker_does_norm([FromRoute] int id)
         {

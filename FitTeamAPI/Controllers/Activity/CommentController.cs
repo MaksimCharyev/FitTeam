@@ -15,7 +15,7 @@ namespace FitTeamAPI.Controllers.Activity
         {
             _databaseContext = databaseContext;
         }
-        [HttpPost]
+        [HttpPost]//создание нового комментария
         public async Task<IActionResult> CreateComment([FromBody] CreateCommentDTO commentDTO)
         {
             var comment = new Comment()
@@ -28,20 +28,20 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Comment has been added");
         }
-        [HttpGet]
+        [HttpGet]//получение комментария из БД по его id
         [Route("id")]
         public async Task<ActionResult<Comment>> GetCommentByID([FromRoute] int id)
         {
             var comment = await _databaseContext.comments.FirstOrDefaultAsync(x => x.CommentID == id);
             return Ok(comment);
         }
-        [HttpGet]
+        [HttpGet]//получение всех комментариев из БД
         public async Task<ActionResult<List<Comment>>> GetAllComments()
         {
             var comment = await _databaseContext.comments.ToListAsync();
             return Ok(comment);
         }
-        [HttpPatch]
+        [HttpPatch]//обновление по id
         [Route("id")]
         public async Task<IActionResult> UpdateComment([FromRoute] int id, [FromBody] CreateCommentDTO commentDTO)
         {
@@ -56,7 +56,7 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Comment has been updated");
         }
-        [HttpDelete]
+        [HttpDelete]//удаление по id
         [Route("id")]
         public async Task<IActionResult> DeleteComment([FromRoute] int id)
         {

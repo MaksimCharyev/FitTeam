@@ -17,7 +17,7 @@ namespace FitTeamAPI.Controllers.Activity
         {
             _databaseContext = databaseContext;
         }
-        [HttpPost]
+        [HttpPost]//создание нового экземпляра
         public async Task<IActionResult> CreateWorker_has_comment([FromBody] CreateWorker_has_commentDTO worker_has_commentDTO)
         {
             var worker_has_comment = new Worker_has_comment()
@@ -33,20 +33,20 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Worker_has_comment has been added");
         }
-        [HttpGet]
+        [HttpGet]//получение всех Worker_has_comment по ToID, т.е. получение всех комментариев для работника, которому они адрессованы
         [Route("Workerid")]
         public async Task<ActionResult<List<Worker_has_comment>>> GetCommentsforWorkerByID([FromRoute] int Workerid)
         {
             var worker_has_comment = await _databaseContext.workers_has_comments.Where(x => x.ToID == Workerid).ToListAsync();
             return Ok(worker_has_comment);
         }
-        [HttpGet]
-        public async Task<ActionResult<List<Worker_has_comment>>> GetAllComments()
+        [HttpGet]//получение из БД всех Worker_has_comment
+        public async Task<ActionResult<List<Worker_has_comment>>> GetAllWorker_has_comment()
         {
             var worker_has_comment = await _databaseContext.workers_has_comments.ToListAsync();
             return Ok(worker_has_comment);
         }
-        [HttpPatch]
+        [HttpPatch]//обновление по id
         [Route("id")]
         public async Task<IActionResult> UpdateWorker_has_comment([FromRoute] int id, [FromBody] CreateWorker_has_commentDTO worker_has_commentDTO)
         {
@@ -64,7 +64,7 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Worker_has_comment has been updated");
         }
-        [HttpDelete]
+        [HttpDelete]//удаление по id
         [Route("id")]
         public async Task<IActionResult> DeleteWorker_has_comment([FromRoute] int id)
         {

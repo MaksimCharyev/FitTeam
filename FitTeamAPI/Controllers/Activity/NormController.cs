@@ -16,20 +16,20 @@ namespace FitTeamAPI.Controllers.Activity
         {
             _databaseContext = databaseContext;
         }
-        [HttpGet]
+        [HttpGet]//получение всех нормативов из БД
         public async Task<ActionResult<List<Norm>>> GetAllNorms()
         {
             var norms = await _databaseContext.norms.ToListAsync();
             return Ok(norms);
         }
-        [HttpGet]
+        [HttpGet]//получение норматива по его id
         [Route("id")]
         public async Task<ActionResult<Norm>> GetNormByID([FromRoute] int id)
         {
             var norm = await _databaseContext.norms.FirstOrDefaultAsync(x => x.NormID == id);
             return Ok(norm);
         }
-        [HttpPost]
+        [HttpPost]//создание нового норматива
         public async Task<IActionResult> CreateNorm([FromBody] CreateNormDTO normDTO)
         {
             var norm = new Norm()
@@ -41,7 +41,7 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Norm has been added");
         }
-        [HttpPatch]
+        [HttpPatch]//изменения полей норматива по id
         [Route("id")]
         public async Task<IActionResult> UpdateNorm([FromRoute] int id, [FromBody] CreateNormDTO normDTO)
         {
@@ -55,7 +55,7 @@ namespace FitTeamAPI.Controllers.Activity
             await _databaseContext.SaveChangesAsync();
             return Ok("Norm has been updated");
         }
-        [HttpDelete]
+        [HttpDelete]//удаление норматива по id
         [Route("id")]
         public async Task<IActionResult> DeleteNorm([FromRoute] int id)
         {
